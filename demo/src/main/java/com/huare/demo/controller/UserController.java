@@ -1,5 +1,6 @@
 package com.huare.demo.controller;
 
+import com.huare.demo.args.UserArgs;
 import com.huare.demo.entity.User;
 import com.huare.demo.service.UserServiceImpl;
 import io.swagger.annotations.Api;
@@ -26,7 +27,7 @@ public class UserController {
 
     @PostMapping("findById")
     @ApiOperation("根据id查询User")
-    public User findById(@RequestBody User user){
-        return userService.findById(user.getId());
+    public User findById(@RequestBody UserArgs userArgs){
+        return userService.findById(userArgs.getId());
     }
 }
