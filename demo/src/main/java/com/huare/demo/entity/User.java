@@ -1,5 +1,8 @@
 package com.huare.demo.entity;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,12 +12,16 @@ import javax.persistence.Table;
  * User实体类
  */
 @Table(name = "user")
+@Api(value = "User对象")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty("用户id")
     private Integer id;
+    @ApiModelProperty("用户名")
     private String username;
+    @ApiModelProperty("密码")
     private String password;
 
     public User(Integer id, String username, String password) {
