@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 class DemoApplicationTests {
 
@@ -16,6 +18,14 @@ class DemoApplicationTests {
     void contextLoads() {
         User byId = userService.findById(1);
         System.out.println(byId.toString());
+    }
+
+    @Test
+    public void test01(){
+        List<User> users = userService.selectAll();
+        for (User user : users) {
+            System.out.println(user);
+        }
     }
 
 }
