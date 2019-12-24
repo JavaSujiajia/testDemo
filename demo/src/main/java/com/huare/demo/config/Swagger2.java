@@ -24,6 +24,8 @@ import java.util.List;
 @EnableSwagger2
 public class Swagger2 {
 
+    /**      boot项目当前访问地址 ： http://localhost:8083/swagger-ui.html       */
+
     @Bean
     public Docket createRestApi() {
         List<Parameter> pars = new ArrayList<Parameter>();
