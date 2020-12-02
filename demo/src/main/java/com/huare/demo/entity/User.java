@@ -24,6 +24,10 @@ public class User {
     @ApiModelProperty("密码")
     private String password;
 
+    public User() {
+        super();
+    }
+
     public User(Integer id, String username, String password) {
         this.id = id;
         this.username = username;
