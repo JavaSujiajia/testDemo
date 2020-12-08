@@ -1,10 +1,13 @@
 package com.huare.demo.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.huare.demo.args.UserArgs;
+import com.huare.demo.core.utils.Logger;
 import com.huare.demo.entity.User;
 import com.huare.demo.service.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,12 +25,24 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "用户操作-UserController")
 public class UserController {
 
+    protected Logger logger = Logger.getLogger(this.getClass());
+
     @Autowired
     private UserServiceImpl userService;
 
     @PostMapping("findById")
     @ApiOperation("根据id查询User")
     public User findById(@RequestBody UserArgs userArgs){
+        logger.info("根据id查询User,访问参数:"+JSON.toJSONString(userArgs));
         return userService.findById(userArgs.getId());
+    }
+
+    @PostMapping("insertUserInfo")
+    @ApiOperation("用户添加--UserInfo")
+    public String insertUserInfo(@RequestBody UserArgs userArgs){
+        User user = new User();
+        BeanUtils.copyProperties(userArgs,user);
+        int i = userService.insertUser(user);
+        return "数据成功插入["+i+"]行:"+ JSON.toJSONString(user);
     }
 }

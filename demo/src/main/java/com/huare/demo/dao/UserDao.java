@@ -4,6 +4,8 @@ import com.huare.demo.core.mybatis.BaseMapper;
 import com.huare.demo.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * 文件描述
  *
@@ -12,5 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface UserDao extends BaseMapper<User> {
+
+    public List<User> findUserByUsername(String username);
 
 }
