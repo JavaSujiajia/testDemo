@@ -33,14 +33,22 @@ public class MyHttpInterceptor extends HandlerInterceptorAdapter {
 		String queryString = "";
 		// 去掉最后一个空格
 		Map<String, String[]> params = request.getParameterMap();
-		Map bodyString = this.getBodyString(request);
-		for (String key : params.keySet()) {
-			String[] values = params.get(key);
-			for (int i = 0; i < values.length; i++) {
-				String value = values[i];
-				queryString += key + "=" + value + "&";
-			}
-		}
+		//Map<String,Object> bodyString = this.getBodyString(request);
+
+		/*if(params.isEmpty()){
+            for (String key : bodyString.keySet()) {
+                String s = JSON.toJSONString(bodyString.get(key)+"");
+                queryString += key + "=" + s;
+            }
+        }else {*/
+            for (String key : params.keySet()) {
+                String[] values = params.get(key);
+                for (int i = 0; i < values.length; i++) {
+                    String value = values[i];
+                    queryString += key + "=" + value + "&";
+                }
+            }
+//        }
 		queryString = queryString.equals("") ? null : queryString.substring(0, queryString.length() - 1);
 		logger.info(String.format("请求参数, url: %s, method: %s, params: %s", url, method, queryString));
 		

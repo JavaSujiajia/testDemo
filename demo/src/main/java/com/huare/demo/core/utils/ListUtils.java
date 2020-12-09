@@ -8,8 +8,6 @@ import org.springframework.beans.BeanUtils;
 /**
  * @ClassName: ListUtils
  * @Description: list转换
- * @author liyanyong
- * @date 2018年12月13日 下午2:19:56
  */
 public class ListUtils {
 	

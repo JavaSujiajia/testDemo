@@ -26,8 +26,6 @@ import org.slf4j.LoggerFactory;
 /**
  *@ClassName: MD5Utils
  *@Description: MD5 encryption
- *@author youjun
- *@date 2017年1月4日 下午10:21:40
  */
 public class MD5Utils {
 	/**logger record*/

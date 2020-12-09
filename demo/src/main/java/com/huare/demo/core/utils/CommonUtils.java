@@ -13,8 +13,6 @@ import java.util.regex.Pattern;
  * 
  *@ClassName: CommonUtils
  *@Description: 工具类
- *@author MH
- *@date 2017年9月22日 下午4:42:39
  */
 public class CommonUtils {
 	
