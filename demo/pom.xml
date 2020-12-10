@@ -63,7 +63,7 @@
             <version>1.2.59</version>
         </dependency>
 
-         <!--排除springboot自带的logging 日志-->
+        <!--排除springboot自带的logging 日志-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -146,6 +146,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!--rabbitmq-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

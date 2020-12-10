@@ -19,25 +19,26 @@ public class CompressedFileUtils {
 
     /**
      * 压缩文件
-     * @Title: compress
+     *
      * @param sourceFilePath 待压缩文件路径
-     * @param zipFilePath 压缩文件存放路径
-     * @param fileName 压缩文件名
+     * @param zipFilePath    压缩文件存放路径
+     * @param fileName       压缩文件名
+     * @Title: compress
      * @date 2017-12-22 下午3:01:06
      */
-    public static boolean compress(String sourceFilePath, String zipFilePath, String fileName){
+    public static boolean compress(String sourceFilePath, String zipFilePath, String fileName) {
         boolean flag = false;
-        if(StringUtils.isEmpty(sourceFilePath) || StringUtils.isEmpty(zipFilePath) || StringUtils.isEmpty(fileName)){
+        if (StringUtils.isEmpty(sourceFilePath) || StringUtils.isEmpty(zipFilePath) || StringUtils.isEmpty(fileName)) {
             logger.error("源文件路径为空或者压缩文件路径为空或者压缩文件名为空");
             return flag;
         }
         File sourceFile = new File(sourceFilePath);
-        if(!sourceFile.exists()){
+        if (!sourceFile.exists()) {
             logger.error("源文件路径不存在");
             return flag;
         }
         File[] sourceFiles = sourceFile.listFiles();
-        if(sourceFiles == null || sourceFiles.length <= 0){
+        if (sourceFiles == null || sourceFiles.length <= 0) {
             logger.error("源文件没有内容");
             return flag;
         }
@@ -47,8 +48,8 @@ public class CompressedFileUtils {
             CheckedOutputStream cos = new CheckedOutputStream(fileOutputStream, new CRC32());
             out = new ZipOutputStream(cos);
             String basedir = "";
-            for(File file : sourceFiles){
-                if (!file.exists()){
+            for (File file : sourceFiles) {
+                if (!file.exists()) {
                     continue;
                 }
                 compress(file, out, basedir);
@@ -63,10 +64,11 @@ public class CompressedFileUtils {
 
     /**
      * 判断该文件是否为文件夹
-     * @Title: compress
+     *
      * @param file
      * @param out
      * @param basedir
+     * @Title: compress
      * @date 2017-12-22 下午2:59:35
      */
     private static void compress(File file, ZipOutputStream out, String basedir) {
@@ -79,14 +81,15 @@ public class CompressedFileUtils {
 
     /**
      * 进入文件夹递归压缩文件
-     * @Title: compressDirectory
+     *
      * @param dir
      * @param out
      * @param basedir
+     * @Title: compressDirectory
      * @date 2017-12-22 下午2:59:00
      */
     private static void compressDirectory(File dir, ZipOutputStream out, String basedir) {
-        if (!dir.exists()){
+        if (!dir.exists()) {
             return;
         }
         File[] files = dir.listFiles();
@@ -98,10 +101,11 @@ public class CompressedFileUtils {
 
     /**
      * 压缩文件
-     * @Title: compressFile
+     *
      * @param file
      * @param out
      * @param basedir
+     * @Title: compressFile
      * @date 2017-12-22 下午3:00:54
      */
     private static void compressFile(File file, ZipOutputStream out, String basedir) {

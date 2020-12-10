@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * 文件描述
+ *
  * @author sujia
  * @date 2019年11月20日 18:05
  */
@@ -24,7 +25,9 @@ import java.util.List;
 @EnableSwagger2
 public class Swagger2 {
 
-    /**      boot项目当前访问地址 ： http://localhost:8083/swagger-ui.html       */
+    /**
+     * boot项目当前访问地址 ： http://localhost:8083/testDemo/swagger-ui.html
+     */
 
     @Bean
     public Docket createRestApi() {

@@ -9,9 +9,15 @@ import io.swagger.annotations.ApiModelProperty;
 */
 /**
  * 统一的返回结果类型，结果必须包含code跟msg
- * @author maheng
  *
+ * @author maheng
  * @param <T> 返回的数据
+ * <p>
+ * 失败结果
+ * @param code
+ * @return 成功结果
+ * @param data
+ * @return
  *//*
 
 public class Result<T> implements HttpCode {
@@ -40,10 +46,10 @@ public class Result<T> implements HttpCode {
 	
 	*/
 /**
-	 * 失败结果
-	 * @param code
-	 * @return
-	 *//*
+ * 失败结果
+ * @param code
+ * @return
+ *//*
 
 	public static <T> Result<T> error(String code,String message){
 		return new Result<T>(code,message,null);
@@ -51,10 +57,10 @@ public class Result<T> implements HttpCode {
 	
 	*/
 /**
-	 * 成功结果
-	 * @param data
-	 * @return
-	 *//*
+ * 成功结果
+ * @param data
+ * @return
+ *//*
 
 	public static <T> Result<T> ok(T data){
 		return new Result<T>(SUCCESS_CODE,"操作成功",data);

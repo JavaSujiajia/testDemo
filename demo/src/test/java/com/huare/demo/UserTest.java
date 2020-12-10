@@ -22,16 +22,16 @@ class UserTest {
     }
 
     @Test
-    void testInsert(){
+    void testInsert() {
         User user = new User();
         user.setUsername("狗贼");
         user.setPassword("123456");
         int i = userService.insertUser(user);
-        System.out.println("数据成功插入["+i+"]行:"+ JSON.toJSONString(user));
+        System.out.println("数据成功插入[" + i + "]行:" + JSON.toJSONString(user));
     }
 
     @Test
-    void testFindByUsername(){
+    void testFindByUsername() {
         List<User> userList = userService.findByUserName("zhangliu");
         System.out.println(JSON.toJSONString(userList));
     }

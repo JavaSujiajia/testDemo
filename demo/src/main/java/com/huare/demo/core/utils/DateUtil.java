@@ -25,98 +25,97 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
  * 日期工具类
- * @author
  *
+ * @author
  */
 public class DateUtil {
 
 
-	public static String getCurrentDateStr(String dateFormat) {
-		return DateFormatUtils.format(new Date(), dateFormat);
-	}
+    public static String getCurrentDateStr(String dateFormat) {
+        return DateFormatUtils.format(new Date(), dateFormat);
+    }
 
 
-	/**
-	 * 获取当前年的天数
-	 * @return 天数
-	 */
-	public static int getDaysForYear(Integer year){
-		if((year % 4== 0 && year% 100 != 0) || year % 400 == 0 ){
-			return 366;
-		}else {
-			return 365;
-		}
-	}
+    /**
+     * 获取当前年的天数
+     *
+     * @return 天数
+     */
+    public static int getDaysForYear(Integer year) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            return 366;
+        } else {
+            return 365;
+        }
+    }
 
-	/**
-	 * 返回当前的年月日
-	 * @return
-	 */
-	public static String getNowDate(){
-		Date date = new Date();
-		String nowDate = new SimpleDateFormat("yyyy年MM月dd日").format(date);
-		return nowDate;
-	}
+    /**
+     * 返回当前的年月日
+     *
+     * @return
+     */
+    public static String getNowDate() {
+        Date date = new Date();
+        String nowDate = new SimpleDateFormat("yyyy年MM月dd日").format(date);
+        return nowDate;
+    }
 
-	public static int getYear(){
-		Date date = new Date();
-		String year = new SimpleDateFormat("yyyy").format(date);
-		return Integer.parseInt(year);
-	}
+    public static int getYear() {
+        Date date = new Date();
+        String year = new SimpleDateFormat("yyyy").format(date);
+        return Integer.parseInt(year);
+    }
 
-	//返回当前月份
-	public static int getMonth()
-	{
-		Date date = new Date();
-		String month = new SimpleDateFormat("MM").format(date);
-		return Integer.parseInt(month);
-	}
+    //返回当前月份
+    public static int getMonth() {
+        Date date = new Date();
+        String month = new SimpleDateFormat("MM").format(date);
+        return Integer.parseInt(month);
+    }
 
-	//判断闰年
-	public static boolean isLeap(int year)
-	{
-		if (((year % 100 == 0) && year % 400 == 0) || ((year % 100 != 0) && year % 4 == 0))
-			return true;
-		else
-			return false;
-	}
+    //判断闰年
+    public static boolean isLeap(int year) {
+        if (((year % 100 == 0) && year % 400 == 0) || ((year % 100 != 0) && year % 4 == 0))
+            return true;
+        else
+            return false;
+    }
 
-	/**
-	 * 返回当月天数
-	 * @param year 年
-	 * @param month 月
-	 * @return
-	 */
-	public static int getDays(int year, int month)
-	{
-		int days;
-		int FebDay = 28;
-		if (isLeap(year))
-			FebDay = 29;
-		switch (month)
-		{
-			case 1:
-			case 3:
-			case 5:
-			case 7:
-			case 8:
-			case 10:
-			case 12:
-				days = 31;
-				break;
-			case 4:
-			case 6:
-			case 9:
-			case 11:
-				days = 30;
-				break;
-			case 2:
-				days = FebDay;
-				break;
-			default:
-				days = 0;
-				break;
-		}
-		return days;
-	}
+    /**
+     * 返回当月天数
+     *
+     * @param year  年
+     * @param month 月
+     * @return
+     */
+    public static int getDays(int year, int month) {
+        int days;
+        int FebDay = 28;
+        if (isLeap(year))
+            FebDay = 29;
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                days = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                days = 30;
+                break;
+            case 2:
+                days = FebDay;
+                break;
+            default:
+                days = 0;
+                break;
+        }
+        return days;
+    }
 }

@@ -12,11 +12,12 @@ import java.util.List;
 
 public class CSVFileUtils {
 
-    /**解决乱码问题
-     * @see
-     * -h-t-t-p://www.cnblogs.com/tangkai/p/3818084.html
+    /**
+     * 解决乱码问题
+     *
+     * @see -h-t-t-p://www.cnblogs.com/tangkai/p/3818084.html
      */
-    private final static byte bom[] = { (byte) 0xEF, (byte) 0xBB, (byte) 0xBF };
+    private final static byte bom[] = {(byte) 0xEF, (byte) 0xBB, (byte) 0xBF};
     private final static String charset = "UTF-8";
 
     /**
@@ -61,18 +62,18 @@ public class CSVFileUtils {
 
             StringBuffer sb = new StringBuffer();
             String value = BeanUtils.getProperty(row, tag);
-            if(StringUtils.isNotBlank(value)){
+            if (StringUtils.isNotBlank(value)) {
                 // 替换值中双引号
-                if(value.contains("\"")){
+                if (value.contains("\"")) {
                     value = value.replace("\"", "");
                 }
                 // \t解决数字0开头字符串，0显示不出来的问题，比如邮编
-                if(value.startsWith("0") && !value.contains(".")){
+                if (value.startsWith("0") && !value.contains(".")) {
                     value = value + "\t";
                 }
 
             }
-            String rowStr = sb.append("\"").append(value==null?"":value).append("\",").toString();
+            String rowStr = sb.append("\"").append(value == null ? "" : value).append("\",").toString();
             csvWriter.write(rowStr);
         }
         csvWriter.newLine();
@@ -81,9 +82,9 @@ public class CSVFileUtils {
 
     public static void main(String[] args) {
         String ccc = "aishdia,xxx";
-        String substring = ccc.substring((ccc.indexOf(",")+1));
+        String substring = ccc.substring((ccc.indexOf(",") + 1));
         System.out.println(substring);
-        String substring1 = ccc.substring(0,ccc.indexOf(","));
+        String substring1 = ccc.substring(0, ccc.indexOf(","));
         System.out.println(substring1);
     }
 }

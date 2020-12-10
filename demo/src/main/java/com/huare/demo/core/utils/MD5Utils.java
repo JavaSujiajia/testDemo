@@ -1,20 +1,20 @@
 /*
-* Conditions Of Use
-*
-* This software was developed by employees of the Sigmatrix(Beijing) Corporation.
-* This software is provided by sigmatrix as a service and is expressly
-* provided "AS IS."  Sigmatrix MAKES NO WARRANTY OF ANY KIND, EXPRESS, IMPLIED
-* OR STATUTORY, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTY OF
-* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT
-* AND DATA ACCURACY.  Sigmatrix does not warrant or make any representations
-* regarding the use of the software or the results thereof, including but
-* not limited to the correctness, accuracy, reliability or usefulness of
-* the software.
-*
-* Permission to use this software is contingent upon your acceptance
-* of the terms of this agreement.
-*
-*/
+ * Conditions Of Use
+ *
+ * This software was developed by employees of the Sigmatrix(Beijing) Corporation.
+ * This software is provided by sigmatrix as a service and is expressly
+ * provided "AS IS."  Sigmatrix MAKES NO WARRANTY OF ANY KIND, EXPRESS, IMPLIED
+ * OR STATUTORY, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTY OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT
+ * AND DATA ACCURACY.  Sigmatrix does not warrant or make any representations
+ * regarding the use of the software or the results thereof, including but
+ * not limited to the correctness, accuracy, reliability or usefulness of
+ * the software.
+ *
+ * Permission to use this software is contingent upon your acceptance
+ * of the terms of this agreement.
+ *
+ */
 package com.huare.demo.core.utils;
 
 import java.security.MessageDigest;
@@ -24,32 +24,36 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *@ClassName: MD5Utils
- *@Description: MD5 encryption
+ * @ClassName: MD5Utils
+ * @Description: MD5 encryption
  */
 public class MD5Utils {
-	/**logger record*/
-	private static final Logger LOGGER = LoggerFactory.getLogger(MD5Utils.class);
-    
-    /**Global array*/
-    private static final String[] STRDIGITS = { "0", "1", "2", "3", "4", "5",
-            "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
- 
     /**
-     *@Title: MD5Utils
-     *@Description:
+     * logger record
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(MD5Utils.class);
+
+    /**
+     * Global array
+     */
+    private static final String[] STRDIGITS = {"0", "1", "2", "3", "4", "5",
+            "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+
+    /**
+     * @Title: MD5Utils
+     * @Description:
      */
     public MD5Utils() {
     }
- 
+
     /**
-     *@Title: byteToArrayString
-     *@Description: Return to form for Numbers and strings
-     *@return String
-     *@author youjun
-     *@date 2017年1月4日 下午10:22:48
-     *@param bByte
-     *@return
+     * @param bByte
+     * @return
+     * @Title: byteToArrayString
+     * @Description: Return to form for Numbers and strings
+     * @return String
+     * @author youjun
+     * @date 2017年1月4日 下午10:22:48
      */
     private static String byteToArrayString(final byte bByte) {
         int iRet = bByte;
@@ -61,16 +65,16 @@ public class MD5Utils {
         final int iD2 = iRet % 16;
         return STRDIGITS[iD1] + STRDIGITS[iD2];
     }
- 
-    
+
+
     /**
-     *@Title: byteToString
-     *@Description: Convert the byte array to hexadecimal string
-     *@return String
-     *@author youjun
-     *@date 2017年1月4日 下午10:23:27
-     *@param bByte
-     *@return
+     * @param bByte
+     * @return
+     * @Title: byteToString
+     * @Description: Convert the byte array to hexadecimal string
+     * @return String
+     * @author youjun
+     * @date 2017年1月4日 下午10:23:27
      */
     private static String byteToString(final byte[] bByte) {
         final StringBuffer sBuffer = new StringBuffer();
@@ -79,15 +83,15 @@ public class MD5Utils {
         }
         return sBuffer.toString();
     }
- 
+
     /**
-     *@Title: GetMD5Code
-     *@Description: Get the MD5 encrypted string
-     *@return String
-     *@author youjun
-     *@date 2017年1月4日 下午10:23:52
-     *@param strObj
-     *@return
+     * @param strObj
+     * @return
+     * @Title: GetMD5Code
+     * @Description: Get the MD5 encrypted string
+     * @return String
+     * @author youjun
+     * @date 2017年1月4日 下午10:23:52
      */
     public static String getMD5Code(final String strObj) {
         String resultString = null;
@@ -101,9 +105,10 @@ public class MD5Utils {
         }
         return resultString;
     }
+
     public static void main(String[] args) {
-		String md5Code = getMD5Code("ty111111");
-		System.out.println(md5Code);
-	}
+        String md5Code = getMD5Code("ty111111");
+        System.out.println(md5Code);
+    }
 }
 

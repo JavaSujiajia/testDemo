@@ -24,12 +24,12 @@ public class UserServiceImpl extends BaseService<User> {
         return super.findById(id);
     }
 
-    public List<User> findByUserName(String username){
+    public List<User> findByUserName(String username) {
         List<User> userList = userDao.findUserByUsername(username);
         return userList;
     }
 
-    public int insertUser(User user){
+    public int insertUser(User user) {
         try {
             return super.insertSelective(user);
         } catch (Exception e) {

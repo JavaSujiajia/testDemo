@@ -4,9 +4,9 @@ import java.io.*;
 import java.util.List;
 
 /**
- *
  * CSV文件导出工具类
  * Created on 2014-08-07
+ *
  * @author
  * @reviewer
  */
@@ -14,6 +14,7 @@ public class CSVUtils {
 
     /**
      * CSV文件生成方法
+     *
      * @param head
      * @param dataList
      * @param outPutPath
@@ -58,6 +59,7 @@ public class CSVUtils {
 
     /**
      * 写一行数据方法
+     *
      * @param row
      * @param csvWriter
      * @throws IOException

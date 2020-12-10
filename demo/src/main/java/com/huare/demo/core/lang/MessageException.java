@@ -7,64 +7,61 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
  * <p>
  * 该异常会被{@link ControllerAdvice}统一处理并打印日志
  * </p>
- * 
- * @author maheng
  *
+ * @author maheng
  */
-public class MessageException extends RuntimeException implements HttpCode{
+public class MessageException extends RuntimeException implements HttpCode {
 
-	private static final long serialVersionUID = 4850280120926507608L;
-	
-	/**
-	 * 
-	 * @param code 错误信息
-	 */
-	public MessageException(String message) {
-		super(message);
-	}
+    private static final long serialVersionUID = 4850280120926507608L;
 
-	/**
-	 * @Title: MessageException
-	 * @param cause 异常
-	 */
+    /**
+     * @param code 错误信息
+     */
+    public MessageException(String message) {
+        super(message);
+    }
+
+    /**
+     * @param cause 异常
+     * @Title: MessageException
+     */
     public MessageException(Throwable cause) {
         super(cause);
     }
-	
-	/**
-	 * 
-	 * @param code		错误编码
-	 * @param message	错误提示信息
-	 */
-	public MessageException(String code, String message) {
-		super(message);
-		this.code = code;
-	}
-	/**
-	 * 
-	 * @param code	错误编码
-	 * @param data	要返回的数据
-	 */
-	public MessageException(String code, String message, Object data) {
-		super(message);
-		this.code = code;
-		this.data = data;
-	}
 
-	private String code = DEFAULT_ERROR_CODE;
+    /**
+     * @param code    错误编码
+     * @param message 错误提示信息
+     */
+    public MessageException(String code, String message) {
+        super(message);
+        this.code = code;
+    }
 
-	private Object data;
+    /**
+     * @param code 错误编码
+     * @param data 要返回的数据
+     */
+    public MessageException(String code, String message, Object data) {
+        super(message);
+        this.code = code;
+        this.data = data;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    private String code = DEFAULT_ERROR_CODE;
 
-	public Object getData() {
-		return data;
-	}
+    private Object data;
 
-	public void setData(Object data) {
-		this.data = data;
-	}
+    public String getCode() {
+        return code;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
 
 }

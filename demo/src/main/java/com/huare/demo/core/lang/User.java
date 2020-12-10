@@ -3,55 +3,55 @@ package com.huare.demo.core.lang;
 import java.util.List;
 
 public class User {
-	
-	private String schema;
 
-	private String eseCode;
+    private String schema;
 
-	private List<Integer> factoryIds;
-	
-	private boolean admin;
-	
-	private Integer userId;
+    private String eseCode;
 
-	public String getSchema() {
-		return schema;
-	}
+    private List<Integer> factoryIds;
 
-	public void setSchema(String schema) {
-		this.schema = schema;
-	}
+    private boolean admin;
 
-	public String getEseCode() {
-		return eseCode;
-	}
+    private Integer userId;
 
-	public void setEseCode(String eseCode) {
-		this.eseCode = eseCode;
-	}
+    public String getSchema() {
+        return schema;
+    }
 
-	public List<Integer> getFactoryIds() {
-		return factoryIds;
-	}
+    public void setSchema(String schema) {
+        this.schema = schema;
+    }
 
-	public void setFactoryIds(List<Integer> factoryIds) {
-		this.factoryIds = factoryIds;
-	}
+    public String getEseCode() {
+        return eseCode;
+    }
 
-	public Integer getUserId() {
-		return userId;
-	}
+    public void setEseCode(String eseCode) {
+        this.eseCode = eseCode;
+    }
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+    public List<Integer> getFactoryIds() {
+        return factoryIds;
+    }
 
-	public boolean isAdmin() {
-		return admin;
-	}
+    public void setFactoryIds(List<Integer> factoryIds) {
+        this.factoryIds = factoryIds;
+    }
 
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 
 }

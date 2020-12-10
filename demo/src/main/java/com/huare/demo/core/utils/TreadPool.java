@@ -11,7 +11,6 @@ import java.util.function.Function;
 
 /**
  * 线程池操作，提交线程后，会自动复制session
- *
  */
 public class TreadPool {
     private static ExecutorService executorService = Executors.newFixedThreadPool(10);
