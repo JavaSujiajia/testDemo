@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * direct exchange(直连型交换机)
  * sujia
  * 2020/12/10
  */
@@ -37,6 +38,11 @@ public class DirectRabbitConfig {
     @Bean
     Binding bindingDirect() {
         return BindingBuilder.bind(TestDirectQueue()).to(TestDirectExchange()).with("TestDirectRouting");
+    }
+
+    @Bean
+    Binding saveUserDirect() {
+        return BindingBuilder.bind(TestDirectQueue()).to(TestDirectExchange()).with("TestSaveUser");
     }
 
 
