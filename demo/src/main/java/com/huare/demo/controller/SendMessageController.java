@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -89,7 +90,11 @@ public class SendMessageController {
     @PostMapping("/sendUserDataSave")
     public String sendUserDataSave(@RequestBody UserArgs userArgs){
         logger.info("当前访问参数："+ JSON.toJSONString(userArgs));
-        rabbitTemplate.convertAndSend("TestDirectExchange", "TestSaveUser",userArgs);
+        Map<String, Object> saveUserMap = new HashMap<>();
+        saveUserMap.put("messageId", String.valueOf(UUID.randomUUID()));
+        saveUserMap.put("messageData", JSON.toJSONString(userArgs));
+        saveUserMap.put("createTime", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        rabbitTemplate.convertAndSend("topicExchange", "topic.saveUser",saveUserMap);
         return "OK";
     }
 

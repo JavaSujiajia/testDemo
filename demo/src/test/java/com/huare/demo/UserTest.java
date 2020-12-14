@@ -1,6 +1,7 @@
 package com.huare.demo;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.huare.demo.entity.User;
 import com.huare.demo.service.UserServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -34,6 +35,15 @@ class UserTest {
     void testFindByUsername() {
         List<User> userList = userService.findByUserName("zhangliu");
         System.out.println(JSON.toJSONString(userList));
+    }
+
+    @Test
+    public void stringForUser(){
+        String userString = "{\"id\":12,\"password\":\"狗贼12\",\"username\":\"123456\"}";
+        User user = new User();
+        JSONObject strObject = JSONObject.parseObject(userString);
+        User user1 = strObject.toJavaObject(User.class);
+        System.out.println(user1);
     }
 
 
